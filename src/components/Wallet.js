@@ -16,9 +16,19 @@ const Wallet = () => {
     }
   };
 
+  const disconnectWallet = () => {
+    setAccount("");
+    setBalance("");
+    setErrorMessage("");
+  };
+
   return (
     <div>
-      <button onClick={connectWallet}>Connect Your MetaMask</button>
+      {account ? (
+        <button onClick={disconnectWallet}>Disconnect</button>
+      ) : (
+        <button onClick={connectWallet}>Connect Your MetaMask</button>
+      )}
       {account && (
         <div>
           <p>Account: {account}</p>
